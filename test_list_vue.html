@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app-6">
+    
+    <h6> LISTADO</h6>
+    
+      
+    <input v-model="message">
+    
+    <h5>Probando listas</h5>
+
+    <ol>
+      <li v-for="(message, i)">
+       
+        <strong>{{ message}}</strong>
+        <!-- <span>index:{{i}}</span> -->
+        
+      </li>
+    </ol>
+
+    <span>Ingresar :</span>
+    <br>
+    <textarea v-model="message1" placeholder="agregar múltiples líneas"></textarea>
+    <br> 
+    <span>El mensaje multilínea es:</span>
+   
+   
+    <p style="white-space: pre-line;">{{ message1}}</p>
+    <br>
+    <!-- <ol>
+      <li v-for="(message1, i)" style="white-space: pre-line;">
+        {{ message1 }}
+        <strong>{{ message1 }}</strong>
+      </li>
+    </ol> -->
+
+    <h6>FORMA 3</h6>
+
+    <input v-model="nuevapalabra">
+    <button v-on:click="agregarpalabra">Agregar</button>
+    <!--  -->
+    <ol>
+      <li v-for="(todo, i) in palabras">
+        {{ todo.texto }}
+        <span>index:{{i}}</span> 
+      </li>
+    </ol>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</body>
+
+</html>
+
+<script>
+  var app6 = new Vue({
+    el: '#app-6',
+    data: {
+      message: '...',
+      message1:'',
+      
+      palabras: [{
+          texto: 'Learn JavaScript'
+        },
+        {
+          texto: 'Learn Vue'
+        },
+        {
+          texto: 'Build something awesome'
+        }
+      ],
+      nuevapalabra:'',  
+    },
+ 
+    methods:{
+      agregarpalabra(){
+        this.palabras.push({
+          texto: this.nuevapalabra
+
+        })
+      
+      }
+    }
+  })
+</script>

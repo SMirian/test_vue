@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h6>{{ saludo }}</h6>
+
+  <div id="app-6">
+    <h6>{{ saludo }}</h6>
+
+    <p>{{ message }}</p>
+
+    <input v-model="message">
+
+    <h5>Probando listas</h5>
+
+    <ol>
+      <li v-for="(todo, i) in todos">
+        {{ todo.text }}
+        <span>index:{{i}}</span>
+
+        <div v-if="i === 1">Vamos Mirian</div>
+        
+      </li>
+    </ol>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</body>
+
+</html>
+
+
+<script>
+  var app6 = new Vue({
+    el: '#app-6',
+    data: {
+      message: 'Hello Vue!',
+      saludo: 'Hola miriam',
+      todos: [{
+          text: 'Learn JavaScript'
+        },
+        {
+          text: 'Learn Vue'
+        },
+        {
+          text: 'Build something awesome'
+        }
+      ]
+    }
+    
+  })
+</script>
